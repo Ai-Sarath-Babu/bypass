@@ -323,7 +323,7 @@ function HomePage({ setPage }) {
 
   function handleCopy() {
     if (!demoResult) return;
-    navigator.clipboard.writeText(`bypassgram.app/r/${demoResult.id}`);
+    navigator.clipboard.writeText(`${window.location.origin}/r/${demoResult.id}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }
@@ -420,7 +420,7 @@ function HomePage({ setPage }) {
                 )}
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <code style={{ flex: 1, fontSize: 13, color: "#374151", background: "white", padding: "10px 14px", borderRadius: 8, border: "1px solid rgba(168,85,247,0.2)" }}>
-                    bypassgram.app/r/{demoResult.id}
+                    {window.location.origin}/r/{demoResult.id}
                   </code>
                   <button onClick={handleCopy} style={{
                     padding: "10px 16px", borderRadius: 8, border: "none", cursor: "pointer",
@@ -609,7 +609,7 @@ function DashboardPage({ user, links, analytics, saveLink, trackClick, setPage }
       platformName: platform ? platform.name : "Generic Link",
       platformIcon: platform ? platform.icon : "🔗",
       createdAt: new Date().toISOString(),
-      shortUrl: `bypassgram.app/r/${id}`
+      shortUrl: `${window.location.origin}/r/${id}`
     };
     saveLink(link);
     setGenerated(link);
